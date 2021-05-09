@@ -50,5 +50,8 @@ public class Main {
         mouse.takeForAWalk();
         mouse.takeForAWalk();
         mouse.feed();
+
+        Car carAnny = new Car();
+        anna.car = carAnny;
     }
 }
