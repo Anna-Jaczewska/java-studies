@@ -29,15 +29,34 @@ public class Animal {
         }
     }
 
-    void printName() {
-        System.out.println("my name is: " + this.name);
+    void feed() {
+        if (this.weight > 0) {
+            System.out.println("Mniam, dzięki! Moja waga to: " + (this.weight += 1));
+        }
+        if (this.weight <= 0) {
+            System.out.println("Zabiłeś mnie, już nie potrzebuję żarcia");
+        }
     }
 
-    void printNameAndOwner(String owner) {
-        System.out.println(owner + " has " + this.name);
+    void takeForAWalk() {
+        if (this.weight > 0) {
+            System.out.println("Ughh, zmęczyłeś mnie. Moja waga to: " + (this.weight -= 0.75));
+        }
+        if (this.weight <= 0) {
+            System.out.println("Zabiłeś mnie, już nie potrzebuję spaceru :/");
+        }
     }
 
-    String getNameAndOwner(String owner) {
-        return owner + " has " + this.name;
+        void printName () {
+            System.out.println("my name is: " + this.name);
+        }
+
+        void printNameAndOwner (String owner){
+            System.out.println(owner + " has " + this.name);
+        }
+
+        String getNameAndOwner (String owner){
+            return owner + " has " + this.name;
+        }
     }
-}
+
