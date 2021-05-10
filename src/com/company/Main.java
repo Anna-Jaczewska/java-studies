@@ -53,5 +53,18 @@ public class Main {
 
         Car carAnny = new Car();
         anna.car = carAnny;
+
+
+        anna.setSalary(2000.00);
+        anna.getSalary();
+        anna.getSalary();
+        anna.setSalary(4000.00);
+        anna.getSalary();
+        anna.getSalary();
+
+
+
+
+
     }
 }
