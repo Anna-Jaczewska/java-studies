@@ -51,9 +51,6 @@ public class Main {
         mouse.takeForAWalk();
         mouse.feed();
 
-        Car carAnny = new Car();
-        anna.car = carAnny;
-
 
         anna.setSalary(2000.00);
         anna.getSalary();
@@ -62,7 +59,8 @@ public class Main {
         anna.getSalary();
         anna.getSalary();
 
-
+        Car carAnny = new Car("bravo");
+        anna.setCar(carAnny);
 
 
 

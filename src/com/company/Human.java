@@ -11,7 +11,7 @@ public class Human {
     String lastName;
     Phone phone;
     Animal pet;
-    Car car;
+    private Car car;
     private Double salary;
     Date salaryDate = null;
     List<String> list = new ArrayList();
@@ -38,4 +38,23 @@ public class Human {
             System.out.println("ZUS i US już wiedzooo, już się nie ukryjesz");
             this.salary = salary;
     }}
+
+    public Car getCar(){
+        return this.car;
+    }
+    public void setCar(Car car){
+
+        if (this.salary > car.price) {
+        this.car = car;
+            System.out.println("Udało się kupić samochód za gotówkę");
+        }
+        if (this.salary > (car.price/12) ){
+            this.car = car;
+            System.out.println("Udało się kupić samochód na kredyt");
+        }
+        else {
+            System.out.println("Za dużo byś chciał, zarób trochę");
+        }
+
+    }
 }
