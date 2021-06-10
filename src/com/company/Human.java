@@ -1,8 +1,10 @@
 package com.company;
 
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,6 +19,22 @@ public class Human {
     List<String> list = new ArrayList();
     private String pesel1;
     public String pesel2;
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone=" + phone +
+                ", pet=" + pet +
+                ", car=" + car +
+                ", salary=" + salary +
+                ", salaryDate=" + salaryDate +
+                ", list=" + list +
+                ", pesel1='" + pesel1 + '\'' +
+                ", pesel2='" + pesel2 + '\'' +
+                '}';
+    }
 
     public String getPesel1() {
         return pesel1;

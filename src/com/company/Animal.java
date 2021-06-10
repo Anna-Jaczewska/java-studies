@@ -5,6 +5,15 @@ public class Animal {
     private Double weight;
     String name;
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     //konstruktor
     public Animal(String species) {
         this.species = species;
@@ -15,17 +24,10 @@ public class Animal {
 
         }
         switch (this.species) {
-            case "dog":
-                this.weight = 10.2;
-                break;
-            case "cat":
-                this.weight = 2.0;
-                break;
-            case "mouse":
-                this.weight = 0.01;
-                break;
-            default:
-                this.weight = 1.0;
+            case "dog" -> this.weight = 10.2;
+            case "cat" -> this.weight = 2.0;
+            case "mouse" -> this.weight = 0.01;
+            default -> this.weight = 1.0;
         }
     }
 

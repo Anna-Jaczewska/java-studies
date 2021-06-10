@@ -1,12 +1,15 @@
 package com.company;
 
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
         Animal dog = new Animal("canis familiaris");
         dog.name = "Szarik";
         //dog.weight = 12.0;
-       // dog.species = "canis familiaris";
+        // dog.species = "canis familiaris";
         int index = 53524;
         System.out.println("Projekt z grupy: " + index % 3);
 
@@ -59,10 +62,28 @@ public class Main {
         anna.getSalary();
         anna.getSalary();
 
-        Car carAnny = new Car("bravo", "fiat", 2007);
+        Car carAnny = new Car(1, "bravo", "fiat", 2007);
+        carAnny.color = "bordowy";
         anna.setCar(carAnny);
+        Car carAnny2 = new Car(1, "bravo", "fiat", 2007);
+        carAnny2.color = "bordowy";
+        boolean isHashcodeEquals = carAnny.hashCode() == carAnny2.hashCode();
+        if (isHashcodeEquals) {
+        System.out.println(carAnny.equals(carAnny2));
+        } else {
+            System.out.println("Obiekty nie są sobie równe");
+        }
+        System.out.println(carAnny);
+        System.out.println(carAnny2);
 
+        Phone phoneAnny = new Phone();
+        phoneAnny.model = "Mi 9 Lite";
+        phoneAnny.producer = "Xiaomi";
+        phoneAnny.screenSize = 6.39;
+        phoneAnny.os = "Android";
 
-
+        System.out.println(phoneAnny);
+        System.out.println(mouse);
+        System.out.println(anna);
     }
 }
