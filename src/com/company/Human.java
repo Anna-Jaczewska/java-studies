@@ -15,6 +15,15 @@ public class Human {
     private Double salary;
     Date salaryDate = null;
     List<String> list = new ArrayList();
+    private String pesel1;
+    public String pesel2;
+
+    public String getPesel1() {
+        return pesel1;
+    }
+    public void setPesel1(String pesel){
+        this.pesel1 = pesel;
+    }
 
     public Double getSalary(){
 

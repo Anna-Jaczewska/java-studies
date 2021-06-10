@@ -59,7 +59,7 @@ public class Main {
         anna.getSalary();
         anna.getSalary();
 
-        Car carAnny = new Car("bravo");
+        Car carAnny = new Car("bravo", "fiat", 2007);
         anna.setCar(carAnny);
 
 

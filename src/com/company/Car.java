@@ -1,14 +1,16 @@
 package com.company;
 
 public class Car {
-    String model;
-    String producer;
-    Integer yearOfProduction;
+    final String model;
+    final String producer;
+    final Integer yearOfProduction;
     String color;
     Double price;
 
-    public Car(String model){
+    public Car(String model, String producer, Integer yearOfProduction){
         this.model = model;
+        this.producer = producer;
+        this.yearOfProduction = yearOfProduction;
 
         switch (this.model){
             case "bravo":
