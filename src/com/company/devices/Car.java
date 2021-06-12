@@ -6,6 +6,11 @@ public class Car extends Devices {
     public Double price;
 
     @Override
+    public void trunOn() {
+        System.out.println("Obkręć kluczyk");
+    }
+
+    @Override
     public String toString() {
         return "Car{" +
                 "id=" + id +
@@ -18,10 +23,10 @@ public class Car extends Devices {
     }
 
     public Car(Integer id, String model, String producer, Integer yearOfProduction) {
+
+        super (producer, model, yearOfProduction);
         this.id = id;
-        this.model = model;
-        this.producer = producer;
-        this.yearOfProduction = yearOfProduction;
+
 
         switch (this.model) {
             case "bravo" -> this.price = 25000.00;

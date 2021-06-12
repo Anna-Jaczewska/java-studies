@@ -76,9 +76,7 @@ public class Main {
         System.out.println(carAnny);
         System.out.println(carAnny2);
 
-        Phone phoneAnny = new Phone();
-        phoneAnny.model = "Mi 9 Lite";
-        phoneAnny.producer = "Xiaomi";
+        Phone phoneAnny = new Phone("Xiaomi", "Mi 9 Lite", 2019);
         phoneAnny.screenSize = 6.39;
         phoneAnny.os = "Android";
 
@@ -95,5 +93,6 @@ public class Main {
         System.out.println(kropka instanceof Human);
 
         System.out.println(carAnny);
+        phoneAnny.trunOn();
     }
 }
