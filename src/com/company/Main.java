@@ -85,5 +85,13 @@ public class Main {
         System.out.println(phoneAnny);
         System.out.println(mouse);
         System.out.println(anna);
+
+        Animal kropka = new Animal("cat");
+        Human john = new Human();
+        john.pet = kropka;
+
+        System.out.println(john instanceof Human);
+        System.out.println(john instanceof Animal);
+        System.out.println(kropka instanceof Human);
     }
 }

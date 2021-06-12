@@ -1,10 +1,7 @@
 package com.company.devices;
 
-public class Car {
+public class Car extends Devices {
     public final Integer id;
-    public final String model;
-    public final String producer;
-    public final Integer yearOfProduction;
     public String color;
     public Double price;
 

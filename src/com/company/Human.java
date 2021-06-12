@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Human {
+public class Human extends Animal {
     String firstName;
     String lastName;
     Phone phone;
@@ -19,6 +19,10 @@ public class Human {
     List<String> list = new ArrayList();
     private String pesel1;
     public String pesel2;
+
+    public Human () {
+        super("homo sapiens");
+    }
 
     @Override
     public String toString() {
