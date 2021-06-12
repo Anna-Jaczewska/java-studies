@@ -93,5 +93,7 @@ public class Main {
         System.out.println(john instanceof Human);
         System.out.println(john instanceof Animal);
         System.out.println(kropka instanceof Human);
+
+        System.out.println(carAnny);
     }
 }
