@@ -1,12 +1,16 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal("canis familiaris");
+        Pet dog = new Pet("canis familiaris");
         dog.name = "Szarik";
         //dog.weight = 12.0;
         // dog.species = "canis familiaris";
@@ -42,7 +46,7 @@ public class Main {
 //        Double d = 2.3;
 //        Integer i = -32;
 
-        Animal mouse = new Animal("mouse");
+        Pet mouse = new Pet("mouse");
         mouse.feed();
         mouse.feed();
         mouse.feed();
@@ -84,13 +88,12 @@ public class Main {
         System.out.println(mouse);
         System.out.println(anna);
 
-        Animal kropka = new Animal("cat");
+        Pet kropka = new Pet("cat");
         Human john = new Human(15000.0);
         john.pet = kropka;
 
         System.out.println(john instanceof Human);
         System.out.println(john instanceof Animal);
-        System.out.println(kropka instanceof Human);
 
         System.out.println(carAnny);
         phoneAnny.trunOn();
@@ -98,6 +101,11 @@ public class Main {
         carAnny.sell(anna, john, 10000.0);
         System.out.println("Samochód Ani: " + anna.getCar());
         System.out.println("Samochód Johna: " + john.getCar());
+
+        kropka.feed();
+        kropka.feed(0.5);
+        FarmAnimal krowa = new FarmAnimal("krowa");
+        krowa.beEaten();
 
     }
 }

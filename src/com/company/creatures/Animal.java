@@ -1,9 +1,11 @@
-package com.company;
+package com.company.creatures;
 
-public class Animal implements Saleable {
+import com.company.Saleable;
+
+abstract public class Animal implements Saleable, Feedable {
     final public String species;
     private Double weight;
-    String name;
+    public String name;
 
     @Override
     public String toString() {
@@ -31,7 +33,7 @@ public class Animal implements Saleable {
         }
     }
 
-    void feed() {
+    public void feed() {
         if (this.weight > 0) {
             System.out.println("Mniam, dzięki! Moja waga to: " + (this.weight += 1));
         }
@@ -40,7 +42,16 @@ public class Animal implements Saleable {
         }
     }
 
-    void takeForAWalk() {
+    public void feed(Double foodWeight) {
+        if (this.weight > 0) {
+            System.out.println("Mniam, dzięki! Moja waga to: " + (this.weight += foodWeight));
+        }
+        if (this.weight <= 0) {
+            System.out.println("Zabiłeś mnie, już nie potrzebuję żarcia");
+        }
+    }
+
+    public void takeForAWalk() {
         if (this.weight > 0) {
             System.out.println("Ughh, zmęczyłeś mnie. Moja waga to: " + (this.weight -= 0.75));
         }
@@ -49,15 +60,15 @@ public class Animal implements Saleable {
         }
     }
 
-        void printName () {
+        public void printName () {
             System.out.println("my name is: " + this.name);
         }
 
-        void printNameAndOwner (String owner){
+        public void printNameAndOwner (String owner){
             System.out.println(owner + " has " + this.name);
         }
 
-        String getNameAndOwner (String owner){
+        public String getNameAndOwner (String owner){
             return owner + " has " + this.name;
         }
 
