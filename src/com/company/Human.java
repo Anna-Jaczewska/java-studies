@@ -11,7 +11,7 @@ import java.util.List;
 public class Human extends Animal {
     String firstName;
     String lastName;
-    Phone phone;
+    public Phone phone;
     Animal pet;
     private Car car;
     private Double salary;
@@ -19,9 +19,11 @@ public class Human extends Animal {
     List<String> list = new ArrayList();
     private String pesel1;
     public String pesel2;
+    public Double cash;
 
-    public Human () {
+    public Human (Double cash) {
         super("homo sapiens");
+        this.cash = cash;
     }
 
     @Override
@@ -87,5 +89,9 @@ public class Human extends Animal {
             System.out.println("Za dużo byś chciał, zarób trochę");
         }
 
+    }
+    public void transferCarTo(Human buyer){
+        buyer.car = this.car;
+        this.car = null;
     }
 }

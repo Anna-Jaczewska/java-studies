@@ -1,6 +1,6 @@
 package com.company;
 
-public class Animal {
+public class Animal implements Saleable {
     final public String species;
     private Double weight;
     String name;
@@ -60,5 +60,25 @@ public class Animal {
         String getNameAndOwner (String owner){
             return owner + " has " + this.name;
         }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (this instanceof Human){
+            System.out.println("Nie można handlować ludźmi!");
+        }
+        else if (seller.pet != this) {
+            System.out.println("Nie posiadasz takiego zwierzęcia");
+        }
+        else if (buyer.cash < price){
+            System.out.println("Kupujący nie posiada wystarczająco środków by kupić zwierzaka");
+        }
+        else {
+            buyer.pet = this;
+            seller.pet = null;
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println("Transakcja wykonana");
+        }
     }
+}
 

@@ -22,7 +22,7 @@ public class Main {
         String text = dog.getNameAndOwner("Anna");
         System.out.println(text);
 
-        Human anna = new Human();
+        Human anna = new Human(25000.00);
         anna.pet = dog;
         anna.firstName = "Anna";
         anna.lastName = "Jaczewska";
@@ -85,7 +85,7 @@ public class Main {
         System.out.println(anna);
 
         Animal kropka = new Animal("cat");
-        Human john = new Human();
+        Human john = new Human(15000.0);
         john.pet = kropka;
 
         System.out.println(john instanceof Human);
@@ -94,5 +94,10 @@ public class Main {
 
         System.out.println(carAnny);
         phoneAnny.trunOn();
+
+        carAnny.sell(anna, john, 10000.0);
+        System.out.println("Samochód Ani: " + anna.getCar());
+        System.out.println("Samochód Johna: " + john.getCar());
+
     }
 }

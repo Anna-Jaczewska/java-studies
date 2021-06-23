@@ -1,6 +1,9 @@
 package com.company.devices;
 
-public class Phone extends Devices {
+import com.company.Human;
+import com.company.Saleable;
+
+public class Phone extends Devices implements Saleable {
     public Double screenSize;
     public String os;
 
@@ -22,5 +25,22 @@ public class Phone extends Devices {
                 ", screenSize=" + screenSize +
                 ", os='" + os + '\'' +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.phone != this) {
+            System.out.println("Nie posiadasz takiego telefonu");
+        }
+        else if (buyer.cash < price){
+            System.out.println("Kupujący nie posiada wystarczająco środków by kupić telefon");
+        }
+        else {
+            buyer.phone = this;
+            seller.phone = null;
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println("Transakcja wykonana");
+        }
     }
 }
