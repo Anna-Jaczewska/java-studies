@@ -5,11 +5,16 @@ import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.Disel;
 import com.company.devices.Phone;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         Pet dog = new Pet("canis familiaris");
         dog.name = "Szarik";
         //dog.weight = 12.0;
@@ -66,10 +71,10 @@ public class Main {
         anna.getSalary();
         anna.getSalary();
 
-        Car carAnny = new Car(1, "bravo", "fiat", 2007);
+        Disel carAnny = new Disel(1, "bravo", "fiat", 2007);
         carAnny.color = "bordowy";
         anna.setCar(carAnny);
-        Car carAnny2 = new Car(1, "bravo", "fiat", 2007);
+        Disel carAnny2 = new Disel(1, "bravo", "fiat", 2007);
         carAnny2.color = "bordowy";
         boolean isHashcodeEquals = carAnny.hashCode() == carAnny2.hashCode();
         if (isHashcodeEquals) {
@@ -107,5 +112,9 @@ public class Main {
         FarmAnimal krowa = new FarmAnimal("krowa");
         krowa.beEaten();
 
+        phoneAnny.installAnApp(new URL("https://play.google.com/store/apps/details?id=com.udemy.android&hl=pl&gl=US"));
+        carAnny.refuel();
+        phoneAnny.installAnApp("Google Translate", "1.5.3");
+        phoneAnny.installAnApp(new String[]{"Google","Translate"});
     }
 }

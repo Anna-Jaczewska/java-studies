@@ -3,7 +3,7 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Saleable;
 
-public class Car extends Devices implements Saleable {
+abstract public class Car extends Devices implements Saleable {
     public final Integer id;
     public String color;
     public Double price;
@@ -71,4 +71,6 @@ public class Car extends Devices implements Saleable {
             System.out.println("Transakcja wykonana");
         }
     }
+
+    abstract public void refuel();
 }
