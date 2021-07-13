@@ -6,7 +6,7 @@ import com.company.Saleable;
 abstract public class Car extends Devices implements Saleable {
     public final Integer id;
     public String color;
-    public Double price;
+   // public Double price;
 
     @Override
     public void trunOn() {
@@ -21,21 +21,21 @@ abstract public class Car extends Devices implements Saleable {
                 ", producer='" + producer + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
                 ", color='" + color + '\'' +
-                ", price=" + price +
+                ", value=" + value +
                 '}';
     }
 
-    public Car(Integer id, String model, String producer, Integer yearOfProduction) {
+    public Car(Integer id, String model, String producer, Integer yearOfProduction, Double value) {
 
-        super (producer, model, yearOfProduction);
+        super (producer, model, yearOfProduction, value);
         this.id = id;
 
-
-        switch (this.model) {
-            case "bravo" -> this.price = 25000.00;
-            case "fiesta" -> this.price = 3000.00;
-            default -> this.price = 0.00;
-        }
+//
+//        switch (this.model) {
+//            case "bravo" -> this.price = 25000.00;
+//            case "fiesta" -> this.price = 3000.00;
+//            default -> this.price = 0.00;
+//        }
     }
 
     @Override
@@ -48,7 +48,7 @@ abstract public class Car extends Devices implements Saleable {
                 producer.equals(z.producer) &&
                 yearOfProduction.equals(z.yearOfProduction) &&
                 color.equals(z.color) &&
-                price.equals(z.price);
+                value.equals(z.value);
     }
 
     @Override
@@ -57,15 +57,18 @@ abstract public class Car extends Devices implements Saleable {
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        if (seller.getCar() != this) {
-            System.out.println("Nie masz takiego samochodu");
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (!seller.haveCar(this)){
+            throw new Exception("Nie masz takiego samochodu");
+        }
+        if (!buyer.haveCar(null)){
+            throw new Exception("Nie masz miejsca na nowy samochód");
         }
         else if (buyer.cash < price){
             System.out.println("Kupujący nie posiada wystarczająco środków by kupić samochód");
         }
         else {
-            seller.transferCarTo(buyer);
+            seller.transferCarTo(buyer, this);
             buyer.cash -= price;
             seller.cash += price;
             System.out.println("Transakcja wykonana");

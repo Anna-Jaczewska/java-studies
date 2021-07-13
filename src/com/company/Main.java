@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws Exception {
         Pet dog = new Pet("canis familiaris");
         dog.name = "Szarik";
         //dog.weight = 12.0;
@@ -31,7 +31,7 @@ public class Main {
         String text = dog.getNameAndOwner("Anna");
         System.out.println(text);
 
-        Human anna = new Human(25000.00);
+        Human anna = new Human(25000.00, 2);
         anna.pet = dog;
         anna.firstName = "Anna";
         anna.lastName = "Jaczewska";
@@ -71,10 +71,10 @@ public class Main {
         anna.getSalary();
         anna.getSalary();
 
-        Disel carAnny = new Disel(1, "bravo", "fiat", 2007);
+        Disel carAnny = new Disel(1, "bravo", "fiat", 2007, 25000.0);
         carAnny.color = "bordowy";
         anna.setCar(carAnny);
-        Disel carAnny2 = new Disel(1, "bravo", "fiat", 2007);
+        Disel carAnny2 = new Disel(1, "bravo", "fiat", 2007, 3000.0);
         carAnny2.color = "bordowy";
         boolean isHashcodeEquals = carAnny.hashCode() == carAnny2.hashCode();
         if (isHashcodeEquals) {
@@ -85,7 +85,7 @@ public class Main {
         System.out.println(carAnny);
         System.out.println(carAnny2);
 
-        Phone phoneAnny = new Phone("Xiaomi", "Mi 9 Lite", 2019);
+        Phone phoneAnny = new Phone("Xiaomi", "Mi 9 Lite", 2019, 1000.0);
         phoneAnny.screenSize = 6.39;
         phoneAnny.os = "Android";
 
@@ -94,7 +94,7 @@ public class Main {
         System.out.println(anna);
 
         Pet kropka = new Pet("cat");
-        Human john = new Human(15000.0);
+        Human john = new Human(15000.0, 2);
         john.pet = kropka;
 
         System.out.println(john instanceof Human);
@@ -104,8 +104,8 @@ public class Main {
         phoneAnny.trunOn();
 
         carAnny.sell(anna, john, 10000.0);
-        System.out.println("Samochód Ani: " + anna.getCar());
-        System.out.println("Samochód Johna: " + john.getCar());
+        System.out.println("Samochód Ani: " + anna.getCar(0));
+        System.out.println("Samochód Johna: " + john.getCar(0));
 
         kropka.feed();
         kropka.feed(0.5);
@@ -116,5 +116,11 @@ public class Main {
         carAnny.refuel();
         phoneAnny.installAnApp("Google Translate", "1.5.3");
         phoneAnny.installAnApp(new String[]{"Google","Translate"});
+
+        john.setSalary(3500.00);
+        john.setCar(carAnny2);
+        john.valueOfGarageCars();
+        System.out.println(anna.haveCar(carAnny));
+        System.out.println(john.getCar(0));
     }
 }

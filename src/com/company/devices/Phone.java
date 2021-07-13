@@ -15,9 +15,9 @@ public class Phone extends Devices implements Saleable {
     static final String protocol = "https://";
     static final String version = "1.0.0.1";
 
-    public Phone(String producer, String model, Integer yearOfProduction) {
+    public Phone(String producer, String model, Integer yearOfProduction, Double value) {
 
-        super(producer, model, yearOfProduction);
+        super(producer, model, yearOfProduction, value);
     }
 
     @Override

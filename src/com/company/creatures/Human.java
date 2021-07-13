@@ -13,18 +13,22 @@ public class Human extends Animal {
     public String lastName;
     public Phone phone;
     public Animal pet;
-    private Car car;
     private Double salary;
     Date salaryDate = null;
     List<String> list = new ArrayList();
     private String pesel1;
     public String pesel2;
     public Double cash;
+    int garageSize;
+    Car garage[];
 
-    public Human (Double cash) {
+    public Human (Double cash, int garageSize) {
         super("homo sapiens");
         this.cash = cash;
+        garage = new Car[garageSize];
+        this.garageSize = garageSize;
     }
+
 
     @Override
     public String toString() {
@@ -33,7 +37,6 @@ public class Human extends Animal {
                 ", lastName='" + lastName + '\'' +
                 ", phone=" + phone +
                 ", pet=" + pet +
-                ", car=" + car +
                 ", salary=" + salary +
                 ", salaryDate=" + salaryDate +
                 ", list=" + list +
@@ -72,26 +75,79 @@ public class Human extends Animal {
             this.salary = salary;
     }}
 
-    public Car getCar(){
-        return this.car;
+    public Car getCar(Integer carPosition){
+        return garage[carPosition];
     }
-    public void setCar(Car car){
+    public void setCar(Car car) {
+        if (!haveCar(null)){
+            System.out.println("Nie masz miejsca na nowy samochód");
+        }
+        for (int i=0; i < garageSize; i++){
+            if (garage[i] == null)
+            {
+                if (this.salary == null){
+                    System.out.println("Brak pieniędzy, samochód nie został kupiony");
+                    break;
+                }
+                if (this.salary > car.value) {
+                    garage[i] = car;
+                    System.out.println("Udało się kupić samochód za gotówkę");
+                    break;
+                }
 
-        if (this.salary > car.price) {
-        this.car = car;
-            System.out.println("Udało się kupić samochód za gotówkę");
+                if (this.salary > (car.value/12) ){
+                    garage[i] = car;
+                    System.out.println("Udało się kupić samochód na kredyt");
+                    break;
+                }
+                else {
+                    System.out.println("Za dużo byś chciał, zarób trochę");
+
+                }
+
+            }
         }
-        if (this.salary > (car.price/12) ){
-            this.car = car;
-            System.out.println("Udało się kupić samochód na kredyt");
+
+
+    }
+    public void transferCarTo(Human buyer, Car car){
+        for (int i=0; i < garageSize; i++){
+            if (garage[i] == car)
+            {
+                garage[i] = null;
+                break;
+            }
         }
-        else {
-            System.out.println("Za dużo byś chciał, zarób trochę");
+        for (int i=0; i < buyer.garageSize; i++){
+            if (buyer.garage[i] == null)
+            {
+                buyer.garage[i] = car;
+                break;
+            }
         }
 
     }
-    public void transferCarTo(Human buyer){
-        buyer.car = this.car;
-        this.car = null;
+
+    public boolean haveCar(Car car){
+        for (int i=0; i < garageSize; i++){
+            if (garage[i] == car)
+            {
+                return true;
+            }
+        }
+        return false;
     }
+
+    public void valueOfGarageCars () {
+        Double all = 0.0;
+        for (int i = 0; i < garageSize; i++) {
+            if (garage[i] == null){
+                continue;
+            }
+            all += garage[i].value;
+        }
+        System.out.println("Wartość wszystkich samochodów: " + all);
+    }
+
+
 }
